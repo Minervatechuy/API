@@ -1,0 +1,33 @@
+version: "3.4"
+services:
+  webserver:
+    build:
+      context: ./flaskServer
+    ports:
+      - "80:5000"
+    links:
+      - mysqldb
+    restart: 'always'
+    volumes:
+      - ./flaskServer/webserver:/flaskProject
+  mysqldb:
+    image: mysql:latest
+    restart: 'always'
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: minervatech
+      MYSQL_USER: minervatech
+      MYSQL_PASSWORD: MinervallTech.
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: 'Phpmyadmin'
+    links:
+      - mysqldb
+    environment:
+      PMA_HOST: mysqldb
+      PMA_PORT: 3306
+    ports:
+      - '800:80'
+
