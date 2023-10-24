@@ -6,12 +6,21 @@ services:
     ports:
       - "80:5000"
     links:
+<<<<<<< HEAD
       - mariadb
     restart: 'always'
     volumes:
       - ./flaskServer/webserver:/flaskProject
   mariadb:
     image: mariadb:10.6-focal
+=======
+      - mysqldb
+    restart: 'always'
+    volumes:
+      - ./flaskServer/webserver:/flaskProject
+  mysqldb:
+    image: mysql:latest
+>>>>>>> e105c0627cd9f7e9dd1d6f702629a696da6f227f
     restart: 'always'
     ports:
       - "3306:3306"
@@ -19,14 +28,24 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: minervatech
       MYSQL_USER: minervatech
+<<<<<<< HEAD
       MYSQL_PASSWORD: MinervallTech
+=======
+      MYSQL_PASSWORD: MinervallTech.
+>>>>>>> e105c0627cd9f7e9dd1d6f702629a696da6f227f
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: 'Phpmyadmin'
     links:
+<<<<<<< HEAD
       - mariadb
     environment:
       PMA_HOST: mariadb
+=======
+      - mysqldb
+    environment:
+      PMA_HOST: mysqldb
+>>>>>>> e105c0627cd9f7e9dd1d6f702629a696da6f227f
       PMA_PORT: 3306
     ports:
       - '800:80'

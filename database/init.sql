@@ -224,6 +224,12 @@ ALTER TABLE `users_to_entites`
   
 
 INSERT INTO `usuarios` (`mail`, `pass`, `telefono`, `nombre`, `ultimoAcceso`, `ultimaIP`, `apellidos`, `activo`, `imagen`) VALUES
+<<<<<<< HEAD
 ('minerva252000@gmail.com', '123', NULL, 'Pruebas', '2023-02-02', '0.0.0.0', '', 1, ''),
 ('prueba@minerva.com', '123', NULL, 'Prueba', '2023-02-05', '0.0.0.0', '', 1, ''),
 ('pruebas@minerva.com', 'test20', NULL, 'Pruebas', '2023-02-03', '0.0.0.0', '', 1, '');
+=======
+('minerva252000@gmail.com', '123', NULL, 'Pruebas', '2023-10-02', '0.0.0.0', '', 1, ''),
+('prueba@minerva.com', '123', NULL, 'Prueba', '2023-10-05', '0.0.0.0', '', 1, ''),
+('pruebas@minerva.com', 'test20', NULL, 'Pruebas', '2023-10-03', '0.0.0.0', '', 1, '');
+>>>>>>> e105c0627cd9f7e9dd1d6f702629a696da6f227f
