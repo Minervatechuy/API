@@ -15,4 +15,23 @@ def create_app():
     from app.routes import user_bp
     app.register_blueprint(user_bp)
 
+    from app.routes import calculators_bp
+    app.register_blueprint(calculators_bp)
+
+    from app.routes import stage_bp
+    app.register_blueprint(stage_bp)
+
+    from app.routes import stage_opcion_bp
+    app.register_blueprint(stage_opcion_bp)
+
+    from app.routes import entitie_bp
+    app.register_blueprint(entitie_bp)
+
+    from app.routes import budget_bp
+    app.register_blueprint(budget_bp)     
+
+    from app.routes import token_bp
+    app.register_blueprint(token_bp)       
+
     return app
+

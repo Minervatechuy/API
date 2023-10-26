@@ -108,7 +108,7 @@ class Usuarios(db.Model):
     ultimaIP = db.Column(db.String(15), nullable=False)
     apellidos = db.Column(db.String(255), nullable=False)
     activo = db.Column(db.Boolean, nullable=False)
-    imagen = db.Column(db.LargeBinary, nullable=True)
+    imagen = db.Column(db.String(255), nullable=True)
 
     def __init__(self, mail, password, telefono, nombre, ultimoAcceso, ultimaIP, apellidos, activo, imagen):
         self.mail = mail
@@ -128,13 +128,15 @@ class Usuarios(db.Model):
 
 class UsersToCalculators(db.Model):
     __tablename__ = 'users_to_calculators'
-    user_email = db.Column(db.String(255), db.ForeignKey('usuarios.mail'), primary_key=True)
-    calculator_token = db.Column(db.String(40), db.ForeignKey('calculators.token'), primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
+    user_email = db.Column(db.String(255))
+    calculator_token = db.Column(db.String(40))
 
 class UsersToEntities(db.Model):
-    __tablename__ = 'users_to_entites'
-    user_email = db.Column(db.String(255), db.ForeignKey('usuarios.mail'), primary_key=True)
-    entity_id = db.Column(db.String(50), db.ForeignKey('entities.ID'), primary_key=True)
+    __tablename__ = 'users_to_entities'
+    id = db.Column(db.Integer, primary_key=True)
+    user_email = db.Column(db.String(255))
+    entity_id = db.Column(db.String(50))
     
 class CalculadorasPresupuestosClientesSchema(SQLAlchemyAutoSchema):
     class Meta:
