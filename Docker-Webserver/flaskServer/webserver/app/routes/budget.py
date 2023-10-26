@@ -64,7 +64,7 @@ def get_presupuestos_entidad():
             'finalizado': row[5], 
             'email': row[6], 
             'telephone': row[7], 
-            'client_name': row[8],  # Changed to 'client_name' to avoid duplicate key
+            'client_name': row[8],
             'fecha': row[9]             
         }) 
  

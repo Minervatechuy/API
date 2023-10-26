@@ -41,10 +41,7 @@ def edit_stage_position():
     if stage_id is None or pos is None:
         return jsonify({'result': 'Stage ID or position not provided'})
 
-    # Perform a database query or execute a stored procedure to update the stage position
     try:
-        # Modify this part to execute the stored procedure or query
-        # Here's an example using SQLAlchemy assuming you have an Etapa model
         stage = Etapa.query.get(stage_id)
         if stage:
             stage.posicion = pos
@@ -71,9 +68,9 @@ def create_stage():
     # Create a new stage
     new_stage = Etapa(token=token, tipo=tipo, titulo=titulo, subtitulo=subtitulo, posicion = 0)
     db.session.add(new_stage)
-    db.session.flush()  # This ensures that the stage is assigned an ID
+    db.session.flush() 
 
-    etapa_id = new_stage.id  # Get the ID of the newly created stage
+    etapa_id = new_stage.id
 
     # Create stage data records
     stage_data = info.copy()

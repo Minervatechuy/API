@@ -61,10 +61,7 @@ def get_specific_calculator_info():
     if token is None:
         return jsonify({'result': 'Token not provided'})
 
-    # Perform a database query or execute a stored procedure to get calculator info
     try:
-        # Modify this part to execute the stored procedure or query
-        # Here's an example using SQLAlchemy assuming you have a Calculator model
         calculator = (
             db.session.query(Calculators)
             .join(UsersToCalculators, Calculators.token == UsersToCalculators.calculator_token)
@@ -182,11 +179,8 @@ def deleteCalc():
 @calculators_bp.route('/get_presupuestos_calculadora', methods=['POST'], endpoint='get_presupuestos_calculadora')
 def get_presupuestos_calculadora():
     info = request.get_json()
-
-    # Se toma el token y la formula del json anterior de cara a la búsqueda
     token = info["token"]
 
-    # Raw SQL Query
     sql_query = """
         SELECT p.id, p.resultado, p.formula, p.finalizado, cli.email, cli.telephone, cli.name, cpc.fecha
         FROM calculators c, calculadoras_presupuestos_clientes cpc, presupuestos p, clientes cli
@@ -197,7 +191,6 @@ def get_presupuestos_calculadora():
 
     result_dict = [{'id': row[0], 'resultado': row[1], 'formula': row[2], 'finalizado': row[3], 'email': row[4], 'telephone': row[5], 'name': row[6], 'fecha': row[7]} for row in result]
 
-    # Se devuelve el resultado
     return jsonify({'result': result_dict})
 
 
